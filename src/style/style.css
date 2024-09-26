@@ -21,6 +21,7 @@ button{
     font-size: 30px;
     padding: 5px;
     cursor: pointer;
+    margin-right: 25px;
 }
 
 #search-blk{
@@ -37,13 +38,21 @@ button{
 
 table{
     border-collapse: collapse;
-    width: 75%;
+    width: 60%;
 }
 
 th,
 tr,
 td {
     border: 1px solid aliceblue;
-    padding: 5px;   
+    padding: 10px;   
     text-align: center;
+}
+
+#cleanBtn button {
+    border-radius: 1000px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
 }

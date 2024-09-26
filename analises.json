@@ -1,71 +1,15 @@
 [
     {
-        "nome": "1,1,1-tricloroetano",
-        "cas": "71-55-6",
-        "VazMin": "0,02",
-        "VazMax": "0,2",
-        "VolMin": "0,1",
-        "VolMax": "8 "
-    },
-    {
-        "nome": "1,1,2-Tricloroetano",
-        "cas": "79-00-5",
-        "VazMin": "0,02",
-        "VazMax": "0,2",
-        "VolMin": "2",
-        "VolMax": "10 "
-    },
-    {
-        "nome": "1,1-Dicloroetano",
-        "cas": "75-34-3",
-        "VazMin": "0,02",
-        "VazMax": "0,2",
-        "VolMin": "0,02",
-        "VolMax": "15 "
-    },
-    {
-        "nome": "1,2-Dicloroetano",
-        "cas": "107-06-2",
-        "VazMin": "0,01",
-        "VazMax": "0,2",
-        "VolMin": "1",
-        "VolMax": "50 "
-    },
-    {
-        "nome": "cis-1,2-Dicloroetileno",
-        "cas": "156-59-2",
-        "VazMin": "0,01",
-        "VazMax": "0,2",
-        "VolMin": "1",
-        "VolMax": "50 "
-    },
-    {
-        "nome": "trans-1,2-Dicloroetileno",
-        "cas": "156-60-5",
-        "VazMin": "0,01",
-        "VazMax": "0,2",
-        "VolMin": "0,2",
-        "VolMax": "5 "
-    },
-    {
-        "nome": "1,3,5-Triglicidil isocianurato",
-        "cas": "2451-62-9",
-        "VazMin": "1",
-        "VazMax": "1",
-        "VolMin": "1",
-        "VolMax": "180 "
-    },
-    {
-        "nome": "1,3-Butadieno",
-        "cas": "106-99-0",
+        "nome": "Edlyn",
+        "cas": "30",
         "VazMin": "0,02",
         "VazMax": "0,5",
         "VolMin": "5",
         "VolMax": "25 "
     },
     {
-        "nome": "p-Diclorobenzeno",
-        "cas": "106-46-7",
+        "nome": "Hector",
+        "cas": "26",
         "VazMin": "0,01",
         "VazMax": "0,2",
         "VolMin": "1",
