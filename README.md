@@ -7,7 +7,9 @@ Este projeto consiste em uma funcionalidade de pesquisar análises em um arquivo
 
 - Busca dados em um arquivo JSON com base no nome ou no número CAS.
 - Exibe os resultados encontrados em uma tabela HTML.
-- Gera uma mensagem de erro caso a pesquisa não retorne resultados.
+- Gera uma mensagem de erro caso a pesquisa não retorne resultados ou se o item já estiver na tabela.
+- Possibilidade de remover uma linha específica da tabela ao clicar no botão correspondente.
+- Opção para remover todas as linhas da tabela com um clique no botão "Limpar".
 
 ## Estrutura do Projeto
 
@@ -16,10 +18,11 @@ Este projeto consiste em uma funcionalidade de pesquisar análises em um arquivo
 
 ## Exemplo de Uso
 
-1. O usuário insere um nome ou CAS na barra de pesquisa.
-2. Ao clicar no botão de pesquisa, o código faz uma requisição para um arquivo JSON local (`analises.json`).
-3. Se for encontrado um objeto correspondente ao nome ou CAS fornecido, os dados são exibidos na tabela.
+1. O usuário insere um nome ou número CAS na barra de pesquisa.
+2. Ao clicar no botão de pesquisa, o código faz uma requisição para o arquivo JSON local (`analises.json`).
+3. Se for encontrado um objeto correspondente ao nome ou número CAS fornecido, os dados são exibidos na tabela.
 4. Caso contrário, é exibida uma mensagem de erro.
+5. O usuário pode remover uma linha específica da tabela clicando no botão correspondente ou limpar todas as linhas de uma vez clicando no botão "Limpar".
 
 ### Estrutura do arquivo `analises.json`
 
@@ -49,14 +52,16 @@ Certifique-se de que o arquivo analises.json está no mesmo diretório que o arq
 
 ## Uso
 
-1. Inicie o projeto abrindo o arquivo HTML no navegador.
-2. Insira um nome ou CAS na barra de pesquisa.
-3. Clique no botão "Pesquisar" para buscar os dados.
-4. O resultado será exibido na tabela abaixo do botão de pesquisa.
+1. Inicie o projeto abrindo o arquivo HTML no navegador.Insira um nome ou número CAS na barra de pesquisa.
+2. Clique no botão "Pesquisar" para buscar os dados.
+3. O resultado será exibido na tabela abaixo do botão de pesquisa.
+4. Para remover um resultado específico da tabela, clique no botão de remoção correspondente.
+5. Para limpar todos os resultados da tabela, clique no botão "Limpar".
 
 ## Tratamento de erros
 - Caso a barra de pesquisa esteja vazia, o usuário será alertado para escrever algo.
 - Se nenhum resultado for encontrado para o nome ou CAS fornecido, uma mensagem de erro será exibida.
+- Se o usuário tentar adicionar um item que já está presente na tabela, uma mensagem de erro será exibida.
 
 ## Próximas Funcionalidades
 
@@ -64,7 +69,6 @@ Estou planejando adicionar as seguintes melhorias ao projeto nas próximas vers�
 
 - Tornar a busca mais dinâmica, permitindo que o usuário pesquise por partes do nome ou CAS, ao invés de exigir uma correspondência exata.
 - Implementar a memória do estado atual utilizando o **local storage**, para que os resultados de pesquisas anteriores sejam mantidos entre sessões.
-- Adicionar a funcionalidade de **apagar linhas** da tabela, permitindo que o usuário remova os resultados exibidos quando necessário.
 - Incluir uma funcionalidade para **calcular os possíveis tempos de amostragem**, com base nas vazões e volumes permitidos por cada método, auxiliando nas decisões operacionais.
 - **Melhorar o layout**, tornando a interface mais amigável e intuitiva, com uma melhor disposição visual dos elementos e resultados.
 
@@ -78,6 +82,15 @@ Este projeto foi criado como uma forma de aplicar e aprofundar meus conhecimento
 3. Commit suas alterações: git commit -m 'Adiciona minha nova funcionalidade'.
 4. Faça um push para a branch: git push origin minha-nova-funcionalidade.
 5. Envie um Pull Request.
+
+## O que mudou
+
+Nesta atualização, as seguintes funcionalidades e melhorias foram implementadas:
+
+- **Remoção de linhas específicas da tabela:** Agora é possível remover uma linha específica da tabela ao clicar no botão de remoção correspondente.
+- **Limpar todas as linhas da tabela:** Adicionada a funcionalidade de limpar todas as linhas da tabela com um único clique no botão "Limpar".
+- **Tratamento de erros aprimorado:** Agora, o sistema exibe uma mensagem de erro caso o usuário tente adicionar um item que já esteja presente na tabela.
+
 
 
 
