@@ -1,9 +1,8 @@
-function search(searchContent) {
+function search(searchContent, table) {
     if(!searchContent) {
         alert('Escreva algo na barra de pesquisa')
         return
     }
-
     
     fetch('analises.json')
     .then(resposta => resposta.json())
@@ -12,9 +11,9 @@ function search(searchContent) {
             return obj.nome.toLowerCase() === searchContent.toLowerCase() || obj.cas === searchContent
         })
         if(found.length > 0) {
-            const isValid = repated(found[0])
+            const isValid = repated(found[0], table)
             if (isValid) {
-                post(found[0])
+                post(found[0], table)
             } else {
                 alert('Essa análise já está na tabela.')
             }
@@ -29,8 +28,7 @@ function search(searchContent) {
     document.querySelector('#search').value = ''
 }
 
-function repated(found) {
-    const table = document.querySelector('table')
+function repated(found, table) {
     const columns = table.querySelectorAll('td')
     let isValid = true
 
@@ -45,8 +43,7 @@ function repated(found) {
     return isValid
 }
 
-function post(found) {
-    const table = document.querySelector('table')
+function post(found, table) {
     const row = table.insertRow()
     const nome = row.insertCell(0)
     const cas = row.insertCell(1)
@@ -54,7 +51,8 @@ function post(found) {
     const vazMax = row.insertCell(3)
     const volMin = row.insertCell(4)
     const volMax = row.insertCell(5)
-    const action = row.insertCell(6)
+    // const action = row.insertCell(6)
+    
     nome.innerText = found.nome
     cas.innerText = found.cas
     vazMin.innerText = found.VazMin
@@ -62,31 +60,71 @@ function post(found) {
     volMin.innerText = found.VolMin
     volMax.innerText = found.VolMax
 
-    action.setAttribute('id', 'cleanBtn')
+    nome.setAttribute('class', 'nameColumn')
 
-    const button = document.createElement('button')
-    button.innerText = '-'
-    button.classList.add('remove-btn')
-    action.appendChild(button)
+    // action.setAttribute('id', 'cleanBtn')
     
+    const button = document.createElement('button')
+    button.setAttribute('id', 'cleanBtn')
+    button.innerText = '-'
+    // button.classList.add('remove-btn')
+    // action.appendChild(button)
+    nome.appendChild(button)
+
+    saveState(table)
 }
 
-function clean() {
-    const table = document.querySelector('table')
+function clean(table) {
     const columns = table.querySelectorAll('td')
     columns.forEach(column => column.remove())
+    saveState(table)
 }
 
-function cleanRow(target) {
+function cleanRow(target,table) {
     target.closest('tr').remove()
+    saveState(table)
 }
 
+function saveState(table){
+    const columns = table.querySelectorAll('td')
+    const itemValues = []
+    
+    for(let column of columns){
+        let columnText = column.firstChild.textContent.trim()
+        itemValues.push(columnText)
+    }    
+    const itemsJSON = JSON.stringify(itemValues)
+    localStorage.setItem('items', itemsJSON)
+}
+
+function addSavedState() {
+    const restauredContent = []
+    const items = localStorage.getItem('items')
+
+    const itemValues = JSON.parse(items)
+    for(let i = 0; i< itemValues.length - 5; i += 6) {
+        let obj = {
+            nome: itemValues[i],
+            cas: itemValues[i+1],
+            VazMin: itemValues[i+2],
+            VazMax: itemValues[i+3],
+            VolMin: itemValues[i+4],
+            VolMax: itemValues[i+5]
+        }
+        restauredContent.push(obj)
+    }
+    const table = document.querySelector('table')
+    restauredContent.forEach(obj => post(obj, table))
+}
 
 document.addEventListener('click', (e) => {
     const target = e.target
     const searchContent = document.querySelector('#search').value
-    if(target.innerText === 'Pesquisar') search(searchContent)
-    if(target.innerText === 'Limpar') clean()
-    if(target.classList.contains('remove-btn')) cleanRow(target)
+    const table = document.querySelector('table')
+    if(target.innerText === 'Pesquisar') search(searchContent, table)
+    if(target.innerText === 'Limpar') clean(table)
+    // if(target.classList.contains('remove-btn')) cleanRow(target, table)
+    if(target.id === 'cleanBtn') cleanRow(target, table)
 })
 
+addSavedState()

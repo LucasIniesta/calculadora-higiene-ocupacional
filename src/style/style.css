@@ -49,10 +49,24 @@ td {
     text-align: center;
 }
 
-#cleanBtn button {
+/* #cleanBtn button {
     border-radius: 1000px;
     padding: 0;
     width: 20px;
     height: 20px;
     font-size: 15px;
+} */
+
+#cleanBtn{
+    border-radius: 1000px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.nameColumn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
 }

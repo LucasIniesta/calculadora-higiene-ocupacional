@@ -23,6 +23,7 @@ Este projeto consiste em uma funcionalidade de pesquisar análises em um arquivo
 3. Se for encontrado um objeto correspondente ao nome ou número CAS fornecido, os dados são exibidos na tabela.
 4. Caso contrário, é exibida uma mensagem de erro.
 5. O usuário pode remover uma linha específica da tabela clicando no botão correspondente ou limpar todas as linhas de uma vez clicando no botão "Limpar".
+6. Estado mantido em local storage. Mantendo pesquisas anteriores entre sessoes.
 
 ### Estrutura do arquivo `analises.json`
 
@@ -68,7 +69,6 @@ Certifique-se de que o arquivo analises.json está no mesmo diretório que o arq
 Estou planejando adicionar as seguintes melhorias ao projeto nas próximas versões:
 
 - Tornar a busca mais dinâmica, permitindo que o usuário pesquise por partes do nome ou CAS, ao invés de exigir uma correspondência exata.
-- Implementar a memória do estado atual utilizando o **local storage**, para que os resultados de pesquisas anteriores sejam mantidos entre sessões.
 - Incluir uma funcionalidade para **calcular os possíveis tempos de amostragem**, com base nas vazões e volumes permitidos por cada método, auxiliando nas decisões operacionais.
 - **Melhorar o layout**, tornando a interface mais amigável e intuitiva, com uma melhor disposição visual dos elementos e resultados.
 
@@ -87,9 +87,15 @@ Este projeto foi criado como uma forma de aplicar e aprofundar meus conhecimento
 
 Nesta atualização, as seguintes funcionalidades e melhorias foram implementadas:
 
+### Atualização 1
+
 - **Remoção de linhas específicas da tabela:** Agora é possível remover uma linha específica da tabela ao clicar no botão de remoção correspondente.
 - **Limpar todas as linhas da tabela:** Adicionada a funcionalidade de limpar todas as linhas da tabela com um único clique no botão "Limpar".
 - **Tratamento de erros aprimorado:** Agora, o sistema exibe uma mensagem de erro caso o usuário tente adicionar um item que já esteja presente na tabela.
+
+### Atualização 2
+
+- **Memória de estado mantida:** Agora, os resultados de pesquisas anteriores são mantidos entre sessões.
 
 
 
